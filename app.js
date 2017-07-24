@@ -1,8 +1,9 @@
-const knex = require('./db/knex')
 const express =require('express')
 const bodyParser = require('body-parser')
-const queries = require('./db/queries');
-const cors = require('cors');
+const queries = require('./db/queries')
+const router = require('./router/resources')
+const cors = require('cors')
+
 var router = express.Router()
 var port = process.env.PORT || 8080
 
@@ -11,11 +12,8 @@ app.use(bodyParser.urlencoded({ extended: false}))
 
 
 app.use(cors())
+app.use('/router', router)
 
-router.get('/', (req, resp) => {
-  queries.getWine().then((results) => {
-      resp.json(results)
-    })
-})
+
 
 app.listen(port)
