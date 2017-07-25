@@ -17,9 +17,9 @@ exports.seed = function(knex, Promise) {
         saved: new Date()
       }, {
         id: 3,
-        name: 'Tangley Oaks',
-        type: 'Cabernet',
-        year: 2013,
+        name: 'Stoller Reserve',
+        type: 'Chardonnay',
+        year: 2014,
         saved: new Date()
       }, {
         id: 4,
