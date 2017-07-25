@@ -5,7 +5,7 @@ exports.up = function(knex, Promise) {
     table.text('name').notNullable()
     table.text('type').notNullable()
     table.integer('year').notNullable()
-    table.date('saved').notNullable()
+    table.text('rating').notNullable()
   })
 };
 
