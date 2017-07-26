@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const queries = require('../db/queries');
+const bodyParser = require('body-parser');
 
 router.get('/', (req, resp) => {
   queries.getWine().then((wines) => {
@@ -25,7 +26,12 @@ router.get('/:id', (req, resp) => {
   })
 })
 
-
+router.get('/', (req, resp) => {
+  let newWine = req.body
+  queries.postNewWine(req.body).then((result) => {
+    resp.json(result)
+  })
+})
 
 
 module.exports = router

@@ -1,6 +1,6 @@
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex.raw('DELETE FROM "wine"; ALTER SEQUENCE wine_id_seq RESTART WITH 5;')
+  return knex.raw('DELETE FROM "wine"; ALTER SEQUENCE wine_id_seq RESTART WITH 7;')
     .then(() => {
 
       var list = [{
