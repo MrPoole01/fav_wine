@@ -26,8 +26,7 @@ router.get('/:id', (req, resp) => {
   })
 })
 
-router.get('/', (req, resp) => {
-  let newWine = req.body
+router.post('/', (req, resp) => {
   queries.postNewWine(req.body).then((result) => {
     resp.json(result)
   })

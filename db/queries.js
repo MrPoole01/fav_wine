@@ -1,5 +1,6 @@
 const knex = require('./knex')
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser')
+
 
 module.exports = {
 
@@ -23,7 +24,7 @@ module.exports = {
     return knex('wine').select().where('rating', rating)
   },
 
-  postNewWine: function () {
-    return knex('wine').insert(newWine).returning('*')
+  postNewWine: function (result) {
+    return knex('wine').insert(result).returning('*')
   }
 }
