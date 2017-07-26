@@ -3,15 +3,31 @@ const router = express.Router()
 const queries = require('../db/queries');
 
 router.get('/', (req, resp) => {
-  queries.getWine().then((results) => {
-      resp.json(results)
+  queries.getWine().then((wines) => {
+    let result = wines
+    let keys = Object.keys(req.query)
+    keys.forEach((key) => {
+      result = result.filter((element) => {
+        let sum = ''
+        for (var variable in element) {
+          sum += `${element[variable]}`
+        }
+        return (sum).toLowerCase().includes(req.query[key].toLowerCase())
+      })
     })
-})
-
-router.get('/wine/:id', (req, resp) => {
-  queries.getWineById(req.params.id).then((results) => {
-      resp.json(results)
+    resp.json(result)
   })
 })
+
+router.get('/:id', (req, resp) => {
+  queries.getWineById(req.params.id).then(result) => {
+    resp.json(result)
+  }
+})
+
+// router.post('/', (req, resp) => {
+//   d
+// })
+
 
 module.exports = router
