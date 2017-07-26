@@ -20,14 +20,12 @@ router.get('/', (req, resp) => {
 })
 
 router.get('/:id', (req, resp) => {
-  queries.getWineById(req.params.id).then(result) => {
-    resp.json(result)
-  }
+  queries.getWineById(req.params.id).then((result) => {
+      resp.json(result)
+  })
 })
 
-// router.post('/', (req, resp) => {
-//   d
-// })
+
 
 
 module.exports = router
