@@ -9,7 +9,7 @@ module.exports = {
   },
 
   getWineById: function (id) {
-    return knex('wine').select().where('id', id)
+    return knex('wine').select().where('id', id).first()
   },
 
   getWineByName: function (name) {
@@ -26,5 +26,14 @@ module.exports = {
 
   postNewWine: function (result) {
     return knex('wine').insert(result).returning('*')
+  },
+
+  // putNewField: function (id) {
+  //   console.log(id);
+  //   return knex('wine').update(id).returning('id')
+  // },
+
+  deleteIntry: function (name) {
+    return knex('wine').where('name', name).del()
   }
 }

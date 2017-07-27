@@ -32,5 +32,17 @@ router.post('/', (req, resp) => {
   })
 })
 
+// router.put('/:id', (req, resp) => {
+//   // let id = req.params.id
+//   // let edit = req.body
+//     queries.putNewField(req.params.id).then((result) => {
+//     resp.json(result)
+//   })
+// })
 
+router.delete('/:name', (req, resp) => {
+  queries.deleteIntry(req.params.name).then((result) => {
+    resp.json({message: "Deleted!"})
+  })
+})
 module.exports = router
