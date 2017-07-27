@@ -28,10 +28,15 @@ module.exports = {
     return knex('wine').insert(result).returning('*')
   },
 
-  // putNewField: function (id) {
-  //   console.log(id);
-  //   return knex('wine').update(id).returning('id')
-  // },
+  putNewField: function (wine, id) {
+    let info = {
+      name: wine.name,
+      type: wine.type,
+      year: wine.year,
+      rating: wine.rating
+    }
+    return knex('wine').where('id', id).update(info).returning('*')
+  },
 
   deleteIntry: function (name) {
     return knex('wine').where('name', name).del()

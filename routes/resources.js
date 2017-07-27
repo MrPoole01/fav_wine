@@ -1,3 +1,4 @@
+const knex = require('../db/knex');
 const express = require('express')
 const router = express.Router()
 const queries = require('../db/queries');
@@ -32,17 +33,16 @@ router.post('/', (req, resp) => {
   })
 })
 
-// router.put('/:id', (req, resp) => {
-//   // let id = req.params.id
-//   // let edit = req.body
-//     queries.putNewField(req.params.id).then((result) => {
-//     resp.json(result)
-//   })
-// })
+router.put('/:id', (req, resp) => {
+    queries.putNewField(req.body, req.params.id).then((result) => {
+    resp.json({message: "Updated!"})
+  })
+})
 
 router.delete('/:name', (req, resp) => {
   queries.deleteIntry(req.params.name).then((result) => {
     resp.json({message: "Deleted!"})
   })
 })
+
 module.exports = router
