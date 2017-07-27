@@ -8,37 +8,37 @@ exports.seed = function(knex, Promise) {
         name: 'Humble Pie',
         type: 'Cabernet',
         year: 1994,
-        rating: '★★★★★'
+        rating: 5
       }, {
         id: 2,
         name: 'Petite Petit',
         type: 'Cabernet',
         year: 2013,
-        rating: '★★★★'
+        rating: 4
       }, {
         id: 3,
         name: 'Stoller Reserve',
         type: 'Chardonnay',
         year: 2014,
-        rating: '★★★'
+        rating: 3
       }, {
         id: 4,
         name: 'Tangley Oaks',
         type: 'Cabernet',
         year: 2013,
-        rating: '★★★★★'
+        rating: 5
       }, {
         id: 5,
         name: 'No 3',
         type: 'Pinot Noir',
         year: 2011,
-        rating: '★★★'
+        rating: 3
       }, {
         id: 6,
         name: 'Minuty',
         type: 'Rosé',
         year: 2016,
-        rating: '★★★★'
+        rating: 4
       }]
       return knex('wine').insert(list)
     });
