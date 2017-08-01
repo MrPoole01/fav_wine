@@ -30,6 +30,7 @@ module.exports = {
 
   putNewField: function (wine, id) {
     let info = {
+      id: wine.id,
       name: wine.name,
       type: wine.type,
       year: wine.year,
