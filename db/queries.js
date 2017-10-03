@@ -29,7 +29,13 @@ module.exports = {
   },
 
   putNewField: function (wine, id) {
-    return knex('wine').where('id', id).update(wine).returning('*')
+    let info = {
+      name: wine.name,
+      type: wine.type,
+      year: wine.year,
+      rating: wine.rating
+    }
+    return knex('wine').where('id', id).update(info).returning('*')
   },
 
   deleteIntry: function (name) {

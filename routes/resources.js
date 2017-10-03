@@ -28,12 +28,14 @@ router.get('/:id', (req, resp) => {
 })
 
 router.post('/', (req, resp) => {
+  console.log(req.body);
   queries.postNewWine(req.body).then((result) => {
     resp.json(result)
   })
 })
 
 router.put('/:id', (req, resp) => {
+  console.log(req.body, req.params.id);
     queries.putNewField(req.body, req.params.id).then((result) => {
     resp.json({message: "Updated!"})
   })
