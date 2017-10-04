@@ -35,7 +35,6 @@ router.post('/', (req, resp) => {
 })
 
 router.put('/:id', (req, resp) => {
-  console.log(req.body, req.params.id);
     queries.putNewField(req.body, req.params.id).then((result) => {
     resp.json({message: "Updated!"})
   })
